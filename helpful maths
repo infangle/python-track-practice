@@ -1,0 +1,10 @@
+num = input().split("+")
+
+num.sort()
+output = ""
+
+for i in num:
+    output = output + "+" + i 
+
+print (output[0:])
+    
