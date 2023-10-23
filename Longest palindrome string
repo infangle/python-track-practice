@@ -1,0 +1,32 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        if n < 2:
+            return s
+        
+        # Initialize a memoization table to store the results
+        memo = [[False] * n for _ in range(n)]
+        
+        # Initialize the base cases for single characters and palindromes of length 2
+        for i in range(n):
+            memo[i][i] = True
+        max_len = 1
+        start = 0
+        
+        # Check for palindromes of length 2
+        for i in range(n - 1):
+            if s[i] == s[i + 1]:
+                memo[i][i + 1] = True
+                max_len = 2
+                start = i
+        
+        # Check for palindromes of length > 2
+        for length in range(3, n + 1):
+            for i in range(n - length + 1):
+                j = i + length - 1
+                if s[i] == s[j] and memo[i + 1][j - 1]:
+                    memo[i][j] = True
+                    max_len = length
+                    start = i
+        
+        return s[start:start + max_len]
