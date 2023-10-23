@@ -1,0 +1,22 @@
+def is_diverse_string(s):
+    n = len(s)
+    positions = [ord(ch) - ord('a') for ch in s]
+    positions.sort()
+
+    for i in range(1, n):
+        if positions[i] - positions[i-1] != 1:
+            return "No"
+    
+    if len(set(positions)) != n:
+        return "No"
+    
+    return "Yes"
+
+# Read the number of strings
+n = int(input())
+
+# Process each string
+for _ in range(n):
+    s = input()
+    result = is_diverse_string(s)
+    print(result)
