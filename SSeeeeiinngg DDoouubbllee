@@ -1,0 +1,8 @@
+t = int(input())
+for x in range(t):
+    res = []
+    s = input()
+    res.append(s)
+    res.append(s[::-1])
+    print(''.join(res))
+    
