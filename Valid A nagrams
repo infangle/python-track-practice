@@ -1,0 +1,12 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) == len(t):
+            rs = ''.join(sorted(s))
+            rt = ''.join(sorted(t))
+            if rs == rt:
+                return True
+            else:
+                return False
+            
+            
+        
